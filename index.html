@@ -71,22 +71,19 @@
       subtitle: "Fire as Clock",
       roomImage: "https://picsum.photos/id/1015/4096/2048",
       artifacts: [
-        { id: "candle-clock", title: "Candle Clock", position: {x:-2.2,y:0.6,z:-4.8}, desc: "Marked candles measured duration as the candle burned downward. Each line represented a rough interval.", hist: "Used across ancient China and medieval Europe. One candle could mark a full night’s watch." },
-        { id: "oil-lamp", title: "Oil Lamp", position: {x:-0.8,y:-0.4,z:-4.9}, desc: "Oil lamps measured time by the rate at which fuel was consumed. The disappearing oil became a visible measure of duration.", hist: "The level dropped steadily — duration made visible." },
-        { id: "incense-clock", title: "Incense Clock", position: {x:1.1,y:0.8,z:-4.7}, desc: "Incense clocks used the slow burning of incense to mark time through scent, smoke, and ash.", hist: "Time you could smell and watch vanish." },
-        { id: "fuse-rope", title: "Fuse Rope", position: {x:2.3,y:-0.7,z:-4.6}, desc: "Knotted ropes or slow-burning cords marked shorter intervals. Each knot became a unit of time.", hist: "An ember traveled from knot to knot." },
-        { id: "fire-beacons", title: "Fire Beacons", position: {x:0,y:1.4,z:-5}, desc: "Fire could also tell communal time across distance. Beacons signaled moments, warnings, beginnings, and endings.", hist: "A chain of flames across the mountains." }
+        { id: "candle-clock", title: "Candle Clock", position: {x:-2.2,y:0.6,z:-4.8}, desc: "Marked candles measured duration as the candle burned downward.", hist: "Used across ancient China and medieval Europe." },
+        { id: "oil-lamp", title: "Oil Lamp", position: {x:-0.8,y:-0.4,z:-4.9}, desc: "Oil lamps measured time by the rate at which fuel was consumed.", hist: "The level dropped steadily — duration made visible." },
+        { id: "incense-clock", title: "Incense Clock", position: {x:1.1,y:0.8,z:-4.7}, desc: "Incense clocks used the slow burning of incense.", hist: "Time you could smell and watch vanish." },
+        { id: "fuse-rope", title: "Fuse Rope", position: {x:2.3,y:-0.7,z:-4.6}, desc: "Knotted ropes or slow-burning cords marked intervals.", hist: "An ember traveled from knot to knot." },
+        { id: "fire-beacons", title: "Fire Beacons", position: {x:0,y:1.4,z:-5}, desc: "Fire beacons signaled communal time across distance.", hist: "A chain of flames across the mountains." }
       ],
       door: { label: "Next Exhibit: Water Time", position: {x:4.2,y:0.2,z:-3.5} }
     };
 
-    let scene, camera, renderer, sphereMesh;
-    let raycaster, pointer;
-    let hotspots = [];
+    let scene, camera, renderer, sphereMesh, raycaster, pointer, hotspots = [];
     let yaw = Math.PI * -0.2, pitch = 0.1, fov = 75;
-    let isDragging = false;
-    let previousMouse = {x:0, y:0};
-    let audio, audioMuted = false;
+    let isDragging = false, previousMouse = {x:0,y:0};
+    let audio;
 
     const canvas = document.getElementById('canvas');
 
@@ -144,7 +141,7 @@
         audio = new Audio('https://freesound.org/data/previews/202/202191_3764196-lq.mp3');
         audio.loop = true; audio.volume = 0.35; audio.play().catch(()=>{});
       };
-      document.getElementById('mute-btn').onclick = () => { if (audio) { audioMuted = !audioMuted; audio.muted = audioMuted; } };
+      document.getElementById('mute-btn').onclick = () => { if (audio) audio.muted = !audio.muted; };
       document.getElementById('close-panel').onclick = () => document.getElementById('info-panel').classList.add('hidden');
       document.getElementById('back-to-room').onclick = () => document.getElementById('coming-soon').classList.add('hidden');
 
