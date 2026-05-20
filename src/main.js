@@ -1,0 +1,1 @@
+// Full Three.js implementation will go here - placeholder for now. Import exhibits and set up scene.
