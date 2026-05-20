@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>The Time Museum</title>
+  <script type="module" crossorigin src="/time-museum/assets/index-9HvoZiSb.js"></script>
+  <link rel="stylesheet" crossorigin href="/time-museum/assets/index-C9vCAxqs.css">
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <!-- Intro -->
+  <div id="intro" class="overlay">
+    <div class="intro-content">
+      <h1>The Time Museum</h1>
+      <p class="tagline">Everything is a clock.</p>
+      <button id="enter-btn">Enter Exhibit 1 — Fire Time</button>
+    </div>
+  </div>
+
+  <!-- Room UI -->
+  <div id="room-ui" class="overlay hidden">
+    <div class="top-bar">
+      <div id="room-title">Fire Time</div>
+      <div id="room-subtitle">Fire as Clock</div>
+    </div>
+    
+    <button id="mute-btn" class="ui-btn">🔊</button>
+    
+    <!-- Info Panel -->
+    <div id="info-panel" class="info-panel hidden">
+      <div class="panel-content">
+        <button id="close-panel" class="close-btn">✕</button>
+        <h2 id="panel-title"></h2>
+        <div id="panel-desc"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coming Soon -->
+  <div id="coming-soon" class="overlay hidden">
+    <div class="coming-content">
+      <h2>Next Exhibit: Water Time</h2>
+      <p>Coming soon…</p>
+      <button id="back-to-room">Return to Fire Time</button>
+    </div>
+  </div>
+
+</body>
+</html>
